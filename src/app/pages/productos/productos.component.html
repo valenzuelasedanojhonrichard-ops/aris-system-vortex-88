@@ -1,0 +1,85 @@
+<h2 class="titulo">📦 Gestión de Productos</h2>
+
+<div class="toolbar">
+
+  <button class="btn verde" (click)="mostrarFormulario()">
+    ➕ Nuevo Producto
+  </button>
+
+  <input
+    type="text"
+    [(ngModel)]="textoBuscar"
+    placeholder="Buscar producto..."
+  >
+
+  <button class="btn azul" (click)="buscar()">Buscar</button>
+  <button class="btn gris" (click)="listar()">Limpiar</button>
+
+</div>
+
+<!-- FORMULARIO -->
+<div *ngIf="formVisible" class="formulario">
+
+  <h3>{{ editando ? '✏️ Editar Producto' : '➕ Nuevo Producto' }}</h3>
+
+  <div class="grid-form">
+
+    <input type="text" placeholder="Nombre" [(ngModel)]="producto.nombre">
+    <input type="number" placeholder="Precio" [(ngModel)]="producto.precio">
+    <input type="text" placeholder="Marca" [(ngModel)]="producto.marca">
+    <input type="number" placeholder="Stock" [(ngModel)]="producto.stock">
+    <input type="number" placeholder="Stock mínimo" [(ngModel)]="producto.stockMin">
+
+  </div>
+
+  <button class="btn guardar" (click)="guardar()">
+    {{ editando ? 'Actualizar' : 'Guardar' }}
+  </button>
+
+</div>
+
+<!-- TABLA -->
+<div class="tabla-container">
+
+<table>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Nombre</th>
+<th>Marca</th>
+<th>Precio</th>
+<th>Stock</th>
+<th>Acciones</th>
+</tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let p of productos">
+
+<td>{{p.id}}</td>
+<td>{{p.nombre}}</td>
+<td>{{p.marca}}</td>
+<td>S/ {{p.precio}}</td>
+
+<td>
+  <span [ngClass]="{
+    'badge verde': p.stock > 10,
+    'badge naranja': p.stock <= 10 && p.stock > 0,
+    'badge rojo': p.stock == 0
+  }">
+    {{p.stock}}
+  </span>
+</td>
+
+<td>
+  <button class="btn editar" (click)="editar(p)">✏️</button>
+  <button class="btn eliminar" (click)="eliminar(p.id)">🗑️</button>
+</td>
+
+</tr>
+</tbody>
+
+</table>
+
+</div>

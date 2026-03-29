@@ -1,0 +1,25 @@
+<h2 class="titulo">Usuarios</h2>
+
+<div class="tabla-container">
+
+<table>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Usuario</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr *ngFor="let u of usuarios">
+<td>{{u.id}}</td>
+<td>{{u.username}}</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>

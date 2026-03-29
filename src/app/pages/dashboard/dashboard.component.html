@@ -1,0 +1,77 @@
+<h2 style="margin-bottom:20px">📊 Panel de control</h2>
+
+<!-- ===================== -->
+<!-- 💰 VENTAS -->
+<!-- ===================== -->
+<h3>💰 Ventas</h3>
+
+<div class="grid">
+
+  <div class="card verde">
+    <h4>Hoy</h4>
+    <p>{{ventas.ventasHoy || 0}}</p>
+  </div>
+
+  <div class="card naranja">
+    <h4>Mes</h4>
+    <p>{{ventas.ventasMes || 0}}</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Total Mes</h4>
+    <p>S/ {{ventas.totalMes || 0}}</p>
+  </div>
+
+</div>
+
+<!-- ===================== -->
+<!-- 📅 CITAS -->
+<!-- ===================== -->
+<h3 style="margin-top:30px">📅 Citas</h3>
+
+<div class="grid">
+
+  <div class="card">
+    <canvas id="graficoVentas"></canvas>
+  </div>
+
+  <div class="card verde">
+    <h4>Hoy</h4>
+    <p>{{citas.hoy || 0}}</p>
+  </div>
+
+  <div class="card naranja">
+    <h4>Semana</h4>
+    <p>{{citas.semana || 0}}</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Total Mes</h4>
+    <p>{{citas.mes || 0}}</p>
+  </div>
+
+</div>
+
+<div class="grid" style="margin-top:15px">
+
+   <div class="card">
+    <canvas id="graficoCitas"></canvas>
+  </div>
+
+  <div class="card">
+    <h4>Reservadas</h4>
+    <p>{{citas.reservadas || 0}}</p>
+  </div>
+
+  <div class="card">
+    <h4>Atendidas</h4>
+    <p>{{citas.atendidas || 0}}</p>
+  </div>
+
+  <div class="card">
+    <h4>Canceladas</h4>
+    <p>{{citas.canceladas || 0}}</p>
+  </div>
+
+</div>
+

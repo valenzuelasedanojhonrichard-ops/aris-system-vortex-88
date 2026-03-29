@@ -1,0 +1,119 @@
+<h2 class="titulo">👥 Gestión de Clientes</h2>
+
+<div class="toolbar">
+
+  <button class="btn verde" (click)="mostrarFormulario()">
+    ➕ Nuevo Cliente
+  </button>
+
+  <input
+    type="text"
+    [(ngModel)]="textoBuscar"
+    placeholder="Buscar cliente..."
+  >
+
+  <button class="btn azul" (click)="buscar()">Buscar</button>
+  <button class="btn gris" (click)="listar()">Limpiar</button>
+
+</div>
+
+<!-- FORMULARIO -->
+<div *ngIf="formVisible" class="formulario">
+
+  <h3>{{ editando ? '✏️ Editar Cliente' : '➕ Nuevo Cliente' }}</h3>
+
+  <div class="grid-form">
+
+    <input type="text" placeholder="Nombre" [(ngModel)]="cliente.nombre">
+    <input type="text" placeholder="Teléfono" [(ngModel)]="cliente.telefono">
+    <input type="email" placeholder="Email" [(ngModel)]="cliente.email">
+
+  </div>
+
+  <button class="btn guardar" (click)="guardar()">
+    {{ editando ? 'Actualizar' : 'Guardar' }}
+  </button>
+
+</div>
+
+<!-- TABLA -->
+<div class="tabla-container">
+
+<table>
+
+<thead>
+<tr>
+  <th>ID</th>
+  <th>Nombre</th>
+  <th>Teléfono</th>
+  <th>Email</th>
+  <th>Acciones</th>
+</tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let c of clientes">
+
+  <td>{{c.id}}</td>
+  <td>{{c.nombre}}</td>
+  <td>{{c.telefono}}</td>
+  <td>{{c.email}}</td>
+
+  <td>
+    <button class="btn editar" (click)="editar(c)">✏️</button>
+    <button class="btn eliminar" (click)="eliminar(c.id)">🗑️</button>
+    <button class="btn azul" (click)="verHistorial(c.id)">📊</button>
+  </td>
+
+</tr>
+</tbody>
+
+</table>
+
+</div>
+
+<!-- HISTORIAL -->
+<div *ngIf="mostrarHistorial" class="formulario" style="margin-top:20px">
+
+  <h3>📊 Historial del Cliente</h3>
+
+  <div class="tabla-container">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Servicio</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let h of historial">
+
+          <td>{{h.servicio?.nombre}}</td>
+          <td>{{h.fechaHora | date:'short'}}</td>
+
+          <td>
+            <span [ngClass]="{
+              'badge verde': h.estado === 'ATENDIDA',
+              'badge naranja': h.estado === 'RESERVADA',
+              'badge rojo': h.estado === 'CANCELADA'
+            }">
+              {{h.estado}}
+            </span>
+          </td>
+
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <button class="btn gris" (click)="mostrarHistorial=false">
+    Cerrar
+  </button>
+
+</div>

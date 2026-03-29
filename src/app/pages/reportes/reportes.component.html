@@ -1,0 +1,68 @@
+<h2 class="titulo">📊 Reporte de Ventas</h2>
+
+<div class="toolbar">
+
+  <div>
+    <label>Inicio:</label>
+    <input type="date" [(ngModel)]="inicio">
+  </div>
+
+  <div>
+    <label>Fin:</label>
+    <input type="date" [(ngModel)]="fin">
+  </div>
+
+  <button class="btn azul" (click)="buscar()">🔍 Buscar</button>
+  <button class="btn verde" (click)="descargarPDF()">📄 PDF</button>
+
+</div>
+
+<!-- RESUMEN -->
+<div class="grid" style="margin-top:20px">
+
+  <div class="card azul">
+    <h4>Total Ventas</h4>
+    <p>{{ventas.length}}</p>
+  </div>
+
+  <div class="card verde">
+    <h4>Monto Total</h4>
+    <p>{{ getTotal() }}</p>
+
+  </div>
+
+</div>
+
+<!-- TABLA -->
+<div class="tabla-container" style="margin-top:20px">
+
+<table>
+
+<thead>
+<tr>
+  <th>ID</th>
+  <th>Total</th>
+  <th>Fecha</th>
+</tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let v of ventas">
+
+  <td>{{v.id}}</td>
+
+  <td>
+    <span class="badge verde">
+      S/ {{v.total}}
+    </span>
+  </td>
+
+  <td>{{v.fecha | date:'dd/MM/yyyy HH:mm'}}</td>
+
+</tr>
+</tbody>
+
+</table>
+
+</div>
+

@@ -1,0 +1,99 @@
+<h2 class="titulo">📅 Gestión de Citas</h2>
+
+<div class="toolbar">
+
+  <button class="btn verde" (click)="mostrarFormulario()">
+    ➕ Nueva Cita
+  </button>
+
+  <input
+    type="text"
+    [(ngModel)]="textoBuscar"
+    placeholder="Buscar cita..."
+  >
+
+  <button class="btn azul" (click)="buscar()">Buscar</button>
+  <button class="btn gris" (click)="listar()">Limpiar</button>
+
+</div>
+
+<!-- FORMULARIO -->
+<div *ngIf="formVisible" class="formulario">
+
+  <h3>📌 Nueva Cita</h3>
+
+  <div class="grid-form">
+
+    <!-- CLIENTE -->
+    <select [(ngModel)]="cita.cliente.id" name="cliente">
+      <option [ngValue]="null">Seleccione cliente</option>
+      <option *ngFor="let c of clientes" [value]="c.id">
+        {{c.nombre}}
+      </option>
+    </select>
+
+    <!-- SERVICIO -->
+    <select [(ngModel)]="cita.servicio.id" (change)="seleccionarServicio()" name="servicio">
+      <option [ngValue]="null">Seleccione servicio</option>
+      <option *ngFor="let s of servicios" [value]="s.id">
+        {{s.nombre}} - S/ {{s.precio}}
+      </option>
+    </select>
+
+    <!-- FECHA -->
+    <input type="datetime-local" [(ngModel)]="cita.fechaHora">
+
+    <!-- DURACIÓN -->
+    <input type="number" [(ngModel)]="cita.duracionMinutos" readonly>
+
+  </div>
+
+  <button class="btn guardar" (click)="guardar()">Guardar</button>
+
+</div>
+
+<!-- TABLA -->
+<div class="tabla-container">
+
+<table>
+
+<thead>
+<tr>
+  <th>ID</th>
+  <th>Cliente</th>
+  <th>Servicio</th>
+  <th>Fecha</th>
+  <th>Estado</th>
+  <th>Acciones</th>
+</tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let c of citas">
+
+  <td>{{c.id}}</td>
+  <td>{{c.cliente?.nombre}}</td>
+  <td>{{c.servicio?.nombre}}</td>
+  <td>{{c.fechaHora | date:'short'}}</td>
+
+  <td>
+    <span [ngClass]="{
+      'badge verde': c.estado === 'ATENDIDA',
+      'badge naranja': c.estado === 'RESERVADA',
+      'badge rojo': c.estado === 'CANCELADA'
+    }">
+      {{c.estado}}
+    </span>
+  </td>
+
+  <td>
+    <button class="btn editar" (click)="atender(c.id)">✔️</button>
+    <button class="btn eliminar" (click)="cancelar(c.id)">❌</button>
+  </td>
+
+</tr>
+</tbody>
+
+</table>
+
+</div>

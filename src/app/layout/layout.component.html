@@ -1,0 +1,51 @@
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="assets/logo.png" alt="logo">
+      <h2>ARIS</h2>
+    </div>
+
+    <nav>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/usuarios" *ngIf="rol==='ADMIN'">Usuarios</a>
+      <a routerLink="/productos">Productos</a>
+      <a routerLink="/servicios">Servicios</a>
+      <a routerLink="/clientes">Clientes</a>
+      <a routerLink="/citas">Citas</a>
+      <a routerLink="/ventas">Ventas</a>
+      <a routerLink="/reportes">Reportes</a>
+    </nav>
+
+    <!-- REDES -->
+    <div class="social">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+
+  </aside>
+
+  <!-- CONTENIDO -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <span>Bienvenido</span>
+      <div>
+        <strong>{{rol}}</strong>
+        <button (click)="logout()">Salir</button>
+      </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</div>
+
