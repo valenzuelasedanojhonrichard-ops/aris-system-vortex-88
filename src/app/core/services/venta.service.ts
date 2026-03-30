@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { API_CONFIG } from '../config/api.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VentaService {
 
-  private API = 'http://localhost:8080/api/ventas';
+  private API = API_CONFIG.url;
 
   constructor(private http: HttpClient) {}
 
@@ -20,7 +21,7 @@ export class VentaService {
   }
 
   dashboard(){
-  return this.http.get<any>('http://localhost:8080/api/ventas/dashboard');
+  return this.http.get<any>(`${this.API}/api/ventas/dashboard`);
   }
 
   buscar(texto:string){
