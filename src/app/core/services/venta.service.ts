@@ -8,7 +8,7 @@ import { API_CONFIG } from '../config/api.config';
 })
 export class VentaService {
 
-  private API = API_CONFIG.url;
+  private API = API_CONFIG.url+ '/api/ventas';
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +21,7 @@ export class VentaService {
   }
 
   dashboard(){
-  return this.http.get<any>(`${this.API}/api/ventas/dashboard`);
+  return this.http.get<any>(`${this.API}/dashboard`);
   }
 
   buscar(texto:string){

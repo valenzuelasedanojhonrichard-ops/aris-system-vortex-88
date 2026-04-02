@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ClienteService {
 
-  private API = API_CONFIG.url + '/clientes';
+  private API = API_CONFIG.url + '/api/clientes';
 
   constructor(private http: HttpClient) {}
 

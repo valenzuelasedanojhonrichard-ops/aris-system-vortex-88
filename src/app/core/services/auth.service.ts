@@ -7,12 +7,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  private API = API_CONFIG.url;
+  private API = API_CONFIG.url + '/api/auth';
 
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
-    return this.http.post<any>(`${this.API}/api/auth/login`, {
+    return this.http.post<any>(`${this.API}/login`, {
       username,
       password
     });

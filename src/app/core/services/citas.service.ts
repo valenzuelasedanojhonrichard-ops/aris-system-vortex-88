@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CitaService {
 
-   private API = API_CONFIG.url;
+   private API = API_CONFIG.url+'/api/citas';
 
   constructor(private http: HttpClient) {}
 
