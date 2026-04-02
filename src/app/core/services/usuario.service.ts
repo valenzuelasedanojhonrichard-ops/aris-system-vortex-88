@@ -13,7 +13,7 @@ export interface Usuario{
 })
 export class UsuariosService {
 
-  private api= API_CONFIG.url ;
+  private api= API_CONFIG.url + '/api/auth' ;
 
   constructor(private http:HttpClient){}
 
