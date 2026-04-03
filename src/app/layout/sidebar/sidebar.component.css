@@ -1,7 +1,7 @@
 .sidebar {
   width: 240px;
   height: 100vh;
-  background: #3e2f23; /* marrón elegante */
+  background: #2b2118; /* 🔥 más oscuro = contraste */
   color: #f5f5f5;
   display: flex;
   flex-direction: column;
@@ -11,35 +11,14 @@
 }
 
 /* LOGO */
-.logo {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.logo img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 .logo h3 {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #f5f5f5; /* blanco para contraste */
 }
 
 /* MENU */
-.menu {
-  list-style: none;
-  padding: 0;
-}
-
-.menu li {
-  margin-bottom: 12px;
-}
-
 .menu a {
   display: block;
   padding: 10px 12px;
@@ -51,18 +30,11 @@
 }
 
 .menu a:hover {
-  background: #a67c52; /* beige marrón */
+  background: #a67c52;
   color: white;
 }
 
 /* REDES */
-.redes {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 20px;
-}
-
 .redes a {
   color: #d6c3a3;
   text-decoration: none;
@@ -72,4 +44,9 @@
 
 .redes a:hover {
   color: white;
+}
+.logo img {
+  background: white;
+  padding: 8px;
+  border-radius: 50%;
 }
