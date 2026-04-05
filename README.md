@@ -149,6 +149,6 @@ Frontend desplegado en Vercel.
 ---
 ## 👨‍💻 Autor
 
-Desarrollado por [Tu Nombre]
+Desarrollado por Valenzuela Sedano Jhon Richard 
 
 Proyecto Fullstack (Angular + Spring Boot) orientado a portafolio profesional.
