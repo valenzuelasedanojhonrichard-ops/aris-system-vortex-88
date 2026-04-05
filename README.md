@@ -1,64 +1,154 @@
-<<<<<<< HEAD
-# Frontendestudio
+# 💇‍♀️ Studio Aris - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+Aplicación web desarrollada con Angular para la gestión de un estudio de belleza **Studio Aris**. Permite administrar usuarios, citas, productos, servicios y ventas mediante una interfaz moderna conectada a una API REST.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🌐 Demo en producción
 
-```bash
+🔗 https://aris-system-vortex-88-8yfgf9ehw.vercel.app
+
+---
+
+## 🚀 Tecnologías utilizadas
+
+* Angular
+* TypeScript
+* HTML5
+* CSS3
+* RxJS
+* Angular Router
+* HTTP Interceptors
+
+---
+
+## 🔐 Autenticación
+
+El sistema implementa autenticación basada en JWT:
+
+* Login de usuario
+* Almacenamiento de token en localStorage
+* Interceptor HTTP para envío automático del token
+* Protección de rutas mediante Guards
+* Redirección automática en errores 401/403
+
+---
+
+## 📌 Funcionalidades principales
+
+### 🔑 Autenticación
+
+* Inicio de sesión
+* Manejo de roles (ADMIN / USER)
+
+### 📊 Dashboard
+
+* Visualización de métricas
+* Resumen de ventas y citas
+
+### 👤 Usuarios
+
+* Listado de usuarios (ADMIN)
+
+### 📅 Citas
+
+* Crear, cancelar y atender citas
+* Filtros por cliente y estado
+* Dashboard de citas
+
+### 💰 Ventas
+
+* Registro de ventas
+* Dashboard
+* Filtros por fechas
+* Reporte PDF
+
+### 📦 Productos / Servicios (ADMIN)
+
+* CRUD completo
+* Búsqueda dinámica
+
+---
+
+## 🏗️ Arquitectura del proyecto
+
+El proyecto sigue una arquitectura modular basada en separación de responsabilidades:
+
+```id="arch1"
+src/
+ ├── app/
+ │   ├── auth/          # Autenticación (login, módulo auth)
+ │   ├── core/          # Lógica global
+ │   │    ├── config/        # Configuración (API URL)
+ │   │    ├── guards/        # Protección de rutas
+ │   │    ├── interceptors/  # Interceptor JWT
+ │   │    └── services/      # Servicios HTTP
+ │   │
+ │   ├── layout/        # Estructura visual
+ │   │    ├── navbar/
+ │   │    ├── sidebar/
+ │   │    └── layout.component.*
+ │   │
+ │   ├── pages/         # Vistas principales del sistema
+ │   │
+ │   ├── app.routes.ts  # Definición de rutas
+ │   └── app.config.ts  # Configuración global
+ │
+ ├── public/
+ │   └── img/           # Recursos estáticos (logo, favicon)
+```
+
+## 🔗 Integración con Backend
+
+El frontend consume una API REST desarrollada en Spring Boot.
+
+📌 Backend desplegado en Railway
+📌 Comunicación mediante HTTP (REST API)
+
+Ejemplo:
+
+```id="arch2"
+GET /api/ventas/dashboard
+```
+
+## ⚙️ Configuración
+
+Editar:
+
+```id="arch3"
+src/app/core/config/api.config.ts
+```
+Ejemplo:
+
+```ts id="arch4"
+export const API_CONFIG = {
+  url: 'https://tu-backend.railway.app'
+};
+```
+## ▶️ Ejecución local
+
+```bash id="arch5"
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+Abrir en navegador:
+```id="arch6"
+http://localhost:4200
 ```
+## ☁️ Despliegue
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Frontend desplegado en Vercel.
+---
+## 🎨 Diseño
 
-```bash
-ng generate --help
-```
+* Estilo minimalista
+* Colores corporativos: marrón, beige y blanco
+* Interfaz enfocada en experiencia de usuario
 
-## Building
+---
+## 👨‍💻 Autor
 
-To build the project run:
+Desarrollado por [Tu Nombre]
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# studio-frontend-angular
-Frontend application developed with Angular for inventory management system.
->>>>>>> ac72a6192055fc900eb690e7e8127aaad2310325
+Proyecto Fullstack (Angular + Spring Boot) orientado a portafolio profesional.
